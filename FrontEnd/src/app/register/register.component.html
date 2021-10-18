@@ -1,0 +1,278 @@
+<header>
+    <!-- our main logo -->
+    <a id="logo" href="">
+        <img src="assets/bus logo.jpg" alt="Logo">
+
+    </a>
+
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            <li><a href="">Home</a></li>
+            <!-- <li><a href="about-page">About Us</a></li> -->
+            <li><a href="contact-page">Contact Us</a></li>
+            <li><a href="cancel-ticket">BuzzWings</a></li>
+            <li><a href="register-page">Register</a></li>
+            <li><a href="login-page">Login</a></li>
+        </ul>
+    </nav>
+</header>
+<div style="background-image:linear-gradient(rgba(0, 0, 0, 0.67),rgba(0,0,0.7,0)),url(../../assets/hiak.jpg);">
+<div id="ig">
+    <!-- <div class="container-fluid p-3 text-white" id="header">
+        
+    </div>
+    <div class="container" style="width: 800px; padding-top: 40px;">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="alert alert-primary" style="text-align: center;">Registration Form</h2>
+
+                <form [formGroup]="userForm" (ngSubmit)="addCustomer()">
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.firstName.errors && 
+                                (userForm.controls.firstName.touched || userForm.controls.firstName.dirty)">
+                            First Name is required
+                        </div>
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" type="text" name="firstName" id="firstName"
+                            formControlName="firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.lastName.errors && 
+                                (userForm.controls.lastName.touched || userForm.controls.lastName.dirty)">
+                            Last Name is required
+                        </div>
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName"
+                            formControlName="lastName">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.emailId.errors && 
+                        (userForm.controls.emailId.touched || userForm.controls.emailId.dirty)">
+                            Email Id is required
+                        </div>
+                        <label for="emailId">Email Id</label>
+                        <input class="form-control" type="text" name="emailId" id="emailId" formControlName="emailId">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.phoneNo.errors && 
+                                (userForm.controls.phoneNo.touched || userForm.controls.phoneNo.dirty)">
+                            Phone is required
+                        </div>
+                        <label for="phoneNo">Phone Number</label>
+                        <input class="form-control" type="text" name="phoneNo" id="phoneNo" formControlName="phoneNo">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.pass.errors && 
+                                (userForm.controls.pass.touched || userForm.controls.pass.dirty)">
+                            Password is required
+                        </div>
+                        <label for="pass">Password</label>
+                        <input class="form-control" type="password" name="pass" id="pass" minlength="5" required
+                            formControlName="pass" [(ngModel)]="passValue">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.Cpass.errors && 
+                                (userForm.controls.Cpass.touched || userForm.controls.Cpass.dirty)">
+                            Confirm Password is required
+                        </div>
+                        <div *ngIf="passValue!=cpassValue">
+                            Password fields are different!
+                        </div>
+                        <label for="Cpass">Confirm Password</label>
+                        <input class="form-control" type="password" name="Cpass" id="Cpass" required
+                            formControlName="Cpass" [(ngModel)]="cpassValue">
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="userForm.controls.DOB.errors && 
+                                    (userForm.controls.DOB.touched || userForm.controls.DOB.dirty)">
+                            Date of Birth is required
+                        </div>
+                        <label for="DOB">Date Of Birth</label>
+                        <input class="form-control" type="date" name="DOB" id="DOB" required formControlName="DOB">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender: </label>&nbsp;
+                        <input type="radio" id="male" name="gender" value="male" formControlName="gender">
+                        <label for="male">Male</label>&nbsp;
+                        <input type="radio" id="female" name="gender" value="female" formControlName="gender">
+                        <label for="female">Female</label>&nbsp;
+                        <input type="radio" id="other" name="gender" value="other" formControlName="gender">
+                        <label for="other">Other</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="userForm.invalid">Register</button>&nbsp;&nbsp;
+                    <button routerLink="/login-page" type="submit" class="btn btn-primary">Already Registered?</button>
+
+                </form>
+            </div>
+        </div>
+    </div> -->
+    <div id="main" >
+   
+        <form [formGroup]="userForm" (ngSubmit)="addCustomer()">
+            <fieldset>
+                <legend>Registration Form</legend>
+            <div class="form-row">
+                <form #regForm="ngForm" (ngSubmit)="regForm.valid"></form>
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.firstName.errors && 
+                            (userForm.controls.firstName.touched || userForm.controls.firstName.dirty)" style="color: red;">
+                            Valid First Name is required
+                        </div>
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" type="text" name="firstName" id="firstName" required
+                        minlength="2"
+                        pattern="^[A-Za-z]+$"
+                        formControlName="firstName">
+                        <div *ngIf="regForm.submitted && userForm.controls.firstName.invalid && (userForm.controls.firstName.dirty || userForm.controls.firstName.touched)" class="alert alert-danger">
+                            <div *ngIf="userForm.controls.firstName.errors?.required"><i>! Valid Name required</i></div>
+                            <div *ngIf="userForm.controls.firstName.errors?.minlength">! Name must be more than 2 characters</div>
+                            <div *ngIf="userForm.controls.firstName.errors?.pattern">! Valid Name required !</div>
+                            </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.lastName.errors && 
+                                (userForm.controls.lastName.touched || userForm.controls.lastName.dirty)" style="color: red;">
+                           Valid Last Name is required
+                        </div>
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName" required
+                        minlength="2"
+                        pattern="^[A-Za-z]+$"
+                            formControlName="lastName">
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.phoneNo.errors && 
+                                (userForm.controls.phoneNo.touched || userForm.controls.phoneNo.dirty)" style="color: red;">
+                            Valid Phone is required
+                        </div>
+                        <label for="phoneNo">Phone Number</label>
+                        <input class="form-control" type="text" name="phoneNo" id="phoneNo" required
+                        minlength="10"
+                        pattern="(0|91)?[7-9][0-9]{9}"
+                        formControlName="phoneNo">
+                </div>
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.emailId.errors && 
+                        (userForm.controls.emailId.touched || userForm.controls.emailId.dirty)" style="color: red;" >
+                            Valid Email Id is required
+                        </div>
+                        <label for="emailId">Email Id</label>
+                        <input class="form-control" type="email" name="emailId" id="emailId" formControlName="emailId" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.pass.errors && 
+                    (userForm.controls.pass.touched || userForm.controls.pass.dirty)" style="color: red;">
+               Valid Password is required
+            </div>
+            <label for="pass">Password</label>
+            <input class="form-control" type="password" name="pass" id="pass" minlength="5"  required
+                formControlName="pass" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}" [(ngModel)]="passValue">
+                </div>
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.Cpass.errors && 
+                                (userForm.controls.Cpass.touched || userForm.controls.Cpass.dirty)" style="color: red;">
+                            Confirm Password is required
+                        </div>
+                        <div *ngIf="passValue!=cpassValue">
+                            Password fields are different!
+                        </div>
+                        <label for="Cpass">Confirm Password</label>
+                        <input class="form-control" type="password" name="Cpass" id="Cpass" required
+                            formControlName="Cpass" [(ngModel)]="cpassValue">
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div *ngIf="userForm.controls.DOB.errors && 
+                                    (userForm.controls.DOB.touched || userForm.controls.DOB.dirty)" style="color: red;">
+                            Date of Birth is required
+                        </div>
+                        <label for="DOB">Date Of Birth</label>
+                        <input class="form-control" type="date" name="DOB" id="DOB" required formControlName="DOB">
+                </div>
+               <!-- <div class="form-group col-md-6">
+                    <div
+                        *ngIf="addBusForm.controls.availableSeat.errors && 
+                        (addBusForm.controls.availableSeat.touched || addBusForm.controls.availableSeat.dirty)" style="color: red;">
+                        Available Seats is required
+                    </div>
+                    <label for="availableSeat"
+                        style="background-color: forestgreen; border-radius: 5px;">Available Seats</label>
+                    <input type="number" class="form-control" id="availableSeat" name="availableSeat" placeholder="Available Seats"
+                        formControlName="availableSeat">
+                </div>-->
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="gender">Gender: </label>&nbsp;
+                    <input type="radio" id="male" name="gender" value="male" formControlName="gender">&nbsp;
+                    <label for="male">Male</label>&nbsp;
+                    <input type="radio" id="female" name="gender" value="female" formControlName="gender">&nbsp;
+                    <label for="female">Female</label>&nbsp;
+                    <input type="radio" id="other" name="gender" value="other" formControlName="gender">&nbsp;
+                    <label for="other">Other</label>
+                </div>
+               <!-- <div class="form-group col-md-6">
+                    <div *ngIf="addBusForm.controls.baseFare.errors && 
+                    (addBusForm.controls.baseFare.touched || addBusForm.controls.baseFare.dirty)" style="color: red;">
+                        Base Fare is required
+                    </div>
+                    <label for="baseFare" style="background-color: forestgreen; border-radius: 5px;">Base
+                        Fare</label>
+                    <input type="number" class="form-control" id="basefare" name="baseFare" placeholder="Base Fare"
+                        formControlName="baseFare">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label" for="busStatus"
+                        style="background-color: forestgreen; border-radius: 5px;">
+                        Bus Status
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <input class="form-check-input" type="checkbox" id="busStatus" name="busStatus"
+                        formControlName="busStatus">
+                </div>
+                <br>
+                <div class="form-check">
+                    <label class="form-check-label" for="coachBusStatus"
+                        style="background-color: forestgreen; border-radius: 5px;">
+                        Coach Bus Status
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <input class="form-check-input" type="checkbox" id="coachBusStatus" name="coachBusStatus"
+                        formControlName="coachBusStatus">
+                </div>
+            </div>-->
+            </div>
+            <button type="submit" class="btn btn-primary"
+                        [disabled]="userForm.invalid">Register</button>&nbsp;&nbsp;
+                    <button routerLink="/login-page" type="submit" class="btn btn-primary">Already Registered?</button>
+        </fieldset>
+        </form>
+    </div>
+</div>
+<div class="cs col-md-4">
+    <img src="../../assets/absda.png" alt="Snow" style="width:80%">
+  </div>
+
+  <footer class="footer">
+    <p class="float-right"></p>
+    <p></p>
+    <p>Ⓒ2020-2021 BuzzWings All rights reserved</p>
+</footer>

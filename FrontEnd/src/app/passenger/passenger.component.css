@@ -1,0 +1,103 @@
+header   {
+    background: #222;
+    color: #FFF;
+    padding: 20px 30px;
+  }
+  #topnav {
+    background-color: #ffcc99;
+    overflow: hidden;
+  }
+  #topnav ul {
+    float: left;
+    letter-spacing: 1px;
+    height: 20px;
+  }
+  nav     {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+  }
+  nav ul   {
+    list-style: none;
+    margin: 0;
+  }
+  nav ul li {
+    display: inline-block;
+  }
+  nav ul li a    {
+    color: #FFF;
+    text-decoration: none;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: 0.3s ease all;
+    font-size: medium;
+  }
+  nav ul li a:hover   {
+    background: #444;
+  }
+  #logo         {
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+    width: 49%;
+  }
+  #logo img    {
+    width: 50px;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .box
+{
+    width: 50%;
+    border: 1px solid rgb(145, 138, 138);
+    border-radius: 25px;
+    padding: 0px 20px 20px 20px;
+    margin-left: 500px;
+}
+
+legend
+{
+  text-align: center;
+  padding-top: 10px;
+}
+  /* .form-row
+  {
+      margin-left: 500px;
+      margin-top: 20px;
+  }
+
+  legend
+  {
+      text-align: center;
+    margin-left: 650px;
+  }
+
+  */
+  .button
+  {
+      
+      margin-left: 300px;
+  } 
+
+.as{
+  margin-left: 500px;
+}
+
+.container
+{
+  height: 75vh;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 700px;
+  background:rgba(0, 0, 0,0.85) ;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0 30px;
+}
+
+  

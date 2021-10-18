@@ -1,0 +1,126 @@
+<header>
+    <a id="logo" href="">
+        <img src="assets/bus logo.jpg" alt="Logo">
+
+    </a>
+    <nav>
+        <ul>
+            <li><a href="dashboard">Profile</a></li>
+            <!-- <li><a href="about-page">About Us</a></li> -->
+            <li><a href="contact-page">Contact Us</a></li>
+            <li><a href="cancel-ticket">BuzzWings</a></li>
+            <li><a href="register-page">Register</a></li>
+            <li><a href="login-page">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="card">
+    <legend>Passenger Details Form</legend>
+    <form [formGroup]="passForm"> 
+        <div class="mt-5 box">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <div *ngIf="passForm.controls.fname.errors && 
+                                (passForm.controls.fname.touched || passForm.controls.fname.dirty)" style="color: red;">
+                            Valid Name is required
+                        </div>
+                        <label>Name</label>
+                    </div>
+                    <div class="form-row" style = "margin-top: -10px;">
+                        <div class="col">
+                        <input class="form-control" type="text" name="firstName" id="firstName"
+                    formControlName="fname" required
+                    minlength="2"
+                    pattern="^[A-Za-z]+$">
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <div *ngIf="passForm.controls.age.errors && 
+                                (passForm.controls.age.touched || passForm.controls.age.dirty)" style="color: red;">
+                            Valid Age is required
+                        </div>
+                        <label>Age</label>
+                    </div>
+                    <div class="form-row" style = "margin-top: -10px;">
+                        <div class="col">
+                        <input class="form-control" type="text" name="age" id="age"
+                    formControlName="age"
+                    pattern="^[0-9]+$">
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-row mt-5">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary" [disabled]="passForm.invalid" (click)="addItem()" >Add</button>&nbsp;
+                    </div>
+                    <!-- <div class="col-6">
+                        <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>&nbsp;
+                    </div> -->
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary" (click) = "paymentProceed()">Proceed</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+  
+    </form>
+    <div class="as">
+    <div class="col-md-8 mt-4 mb-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let item of listData">
+                    <td><span>{{item.fname}}</span></td>
+                    <td><span>{{item.age}}</span></td>
+                    <td><button type="button" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+
+
+
+<!-- <form [formGroup]="passForm" (ngSubmit)="addPassenger()">
+    <fieldset>
+        <legend>Passenger Details Form</legend>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <div *ngIf="passForm.controls.firstName.errors && 
+                        (passForm.controls.firstName.touched || passForm.controls.firstName.dirty)" style="color: red;">
+                    First Name is required
+                </div>
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" name="firstName" id="firstName"
+                    formControlName="firstName">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <div *ngIf="passForm.controls.age.errors && 
+                        (passForm.controls.age.touched || passForm.controls.age.dirty)" style="color: red;">
+                    Age is required
+                </div>
+                <label for="age">Age</label>
+                <input class="form-control" type="text" name="age" id="age" formControlName="age">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary"
+                        [disabled]="passForm.invalid">Add</button>&nbsp;&nbsp;
+    </fieldset>
+</form> -->

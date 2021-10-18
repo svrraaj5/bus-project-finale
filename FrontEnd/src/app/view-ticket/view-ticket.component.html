@@ -1,0 +1,82 @@
+<header>
+
+    <!-- our main logo -->
+    <a id="logo" href="home-page">
+        <img src="./assets/bus logo.jpg" alt="Logo">
+        
+    </a>
+  
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            <li><a href="">Home</a></li>
+            <!-- <li><a href="about-page">About Us</a></li> -->
+            <li><a href="contact-page">Contact Us</a></li>
+            <li><a href="cancel-ticket">BuzzWings</a></li>
+            <li><a href="register-page">Register</a></li>
+            <li><a href="login-page">Login</a></li>
+         </ul>
+    </nav>
+  </header>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+<div id ="container">
+<div class="as">
+
+<div id="print-section">
+    
+    <table cellpadding=20 cellspacing=30>
+        <thead>
+            <tr>
+
+                <th>Ticket No</th>
+                <th>Bus Id</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <!-- <th>Departure Date</th>
+                <th>Arrival Date</th> -->
+                <th>Departure Time</th>
+                <th>Arrival time</th>
+                <th>No of Seats</th>
+                <th>Fare</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+               <tr>
+
+                <td>{{resv.ticketNo}}</td>
+                <td>{{resv.bus.id}}</td>
+                <td>{{resv.bus.source}}</td>
+                <td>{{resv.bus.destination}}</td>
+                <!-- <td>{{r.bus.departureDate| date:short}}</td>
+                <td>{{r.bus.arrivalDate|  date:short}}</td> -->
+                <td>{{resv.bus.departureTime}}</td>
+                <td>{{resv.bus.arrivalTime}}</td>
+                <td>{{resv.noOfSeats}}</td>
+                <td>{{resv.totalFare}}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="img-content">
+        <img src="../../assets/tickiii.jpg" style="width: 350px; height:300px">
+      </div>
+</div>
+
+</div>
+
+<div class="but" style="background-position: absolute;">
+<i class="material-icons" id="btn1">download</i>
+<button mat-raised-button printTitle="Buzzwings Ticket Confirmation" printSectionId="print-section" ngxPrint>Download</button>
+</div>
+
+<style>
+#btn1{
+color: white;
+margin-top: 1px;
+}
+</style>
+

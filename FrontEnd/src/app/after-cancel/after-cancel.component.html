@@ -1,0 +1,62 @@
+<header>
+
+    <!-- our main logo -->
+    <a id="logo" href="home-page">
+        <img src="assets/bus logo.jpg" alt="Logo">
+        
+    </a>
+  
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            
+            <li><a href="/dashboard">Go Back</a></li>
+         </ul>
+    </nav>
+  </header>
+<div class="row" style="margin-left: 60px;">
+<div class="ig" style=" width: 60%;">
+<div>
+    <form>  
+    <fieldset>
+        
+    <h3>Following are your ticket details </h3>
+  
+</fieldset>
+</form>
+</div>
+
+    <div style="margin-top: 30px;margin-left: 8px;  margin-right:300px; width: 800px;" class="scrollable">
+    <div id="main" style="float: right;">
+    <table cellpadding=20 cellspacing=30 >
+        <thead>
+            <tr>
+                <th scope="col">Ticket No</th>
+                <th scope="col">Bus Id</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{resv.ticketNo}}</td>
+                <td>{{resv.bus.id}}</td>
+                <td>{{resv.bus.source}}</td>
+                <td>{{resv.bus.destination}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div>
+        <button (click)="delete()">Confirm Cancellation</button>
+    </div>
+</div>
+</div>
+    <div id="ok" style="display: none; text-align: center;">
+       <h3>Ticket Cancelled Successfully!</h3>
+    </div>
+</div>
+<div class="ig" style=" width: 40%;">
+    <img src="../../assets/cancell.jpg" alt="Snow" style="width:78%">
+</div>
+</div>

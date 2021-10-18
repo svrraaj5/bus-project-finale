@@ -1,0 +1,121 @@
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  th{
+	background-color: steelblue;
+    color: white;
+    width: 800px;
+    padding: 6px;
+    text-align: center;
+   
+   
+}
+table{
+    width: 800px;
+   
+    background-color: white;
+    
+}
+td{
+    padding: 5px;
+    text-align: center;
+}
+
+    button {
+        padding: 5px ;
+        color: #FFF;
+        background-color: #4bc970;
+        font-size: 18px;
+        text-align: center;
+        font-style: normal;
+        border-radius: 5px;
+        width: 30%;
+        border: 1px solid #3ac162;
+        border-width: 1px 1px 1px;
+        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+        margin-bottom: 10px;
+        margin-left: 320px;
+}
+.scrollable {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: fit-content;
+  }
+
+.scrollable::-webkit-scrollbar{
+    display: none;
+}   
+tr:nth-child(even) { 
+    background-color:burlywood; 
+}
+fieldset {
+    margin-bottom: 30px;
+    border: none;
+    }
+    h3 {
+        margin: 30px 0 0 0;
+        text-align: center;
+        }
+
+        .form-inline
+        {
+            padding-left: 130px;
+        }
+        #logo         {
+            display: inline-block;
+            color: #FFF;
+            text-decoration: none;
+            width: 49%;
+          }
+          #logo img    {
+            width: 50px;
+            border-radius: 3px;
+            margin-right: 8px;
+            vertical-align: middle;
+          }
+          nav     {
+            width: 50%;
+            display: inline-block;
+            text-align: right;
+          }
+          nav ul   {
+            list-style: none;
+            margin: 0;
+          }
+          nav ul li {
+            display: inline-block;
+          }
+          nav ul li a    {
+            color: #FFF;
+            text-decoration: none;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 3px;
+            transition: 0.3s ease all;
+            font-size: medium;
+          }
+          nav ul li a:hover   {
+            background: #444;
+          }
+          header   {
+            background: #222;
+            color: #FFF;
+            padding: 20px 30px;
+          }        
+          .ig{
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 460px;
+            float: left;
+             
+              padding: 5px;
+            }
+            
+            /* Clear floats after image containers */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }

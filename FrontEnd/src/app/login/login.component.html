@@ -1,0 +1,124 @@
+<header>
+
+  <!-- our main logo -->
+  <a id="logo" href="home-page">
+      <img src="assets/bus logo.jpg" alt="Logo">
+      
+  </a>
+
+  <!-- main navigation links -->
+  <nav>
+      <ul>
+          <li><a href="">Home</a></li>
+          <!-- <li><a href="about-page">About Us</a></li> -->
+          <li><a href="contact-page">Contact Us</a></li>
+          <li><a href="cancel-ticket">BuzzWings</a></li>
+          <li><a href="register-page">Register</a></li>
+          <li><a href="login-page">Login</a></li>
+       </ul>
+  </nav>
+</header>
+<div class="ig"  style="padding-top: 10px;">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5" style="margin-top: 70px;"> </div>
+    <div class="col-md-7" style="margin-top: 70px;">
+<fieldset>
+      <legend align="center"><h1 class="text-center" style="font-family: 'Times New Roman', Times, serif; "> Login Page</h1></legend>
+      <br />
+
+      <div class="col-sm-12" id="tabs" #tabs>
+
+        <ul class="nav nav-pills">
+
+
+
+          <li  style="width:50%"><a class="btn" data-toggle="tab"
+              (click)="search('search')" class="s" align="center">User</a></li>
+              &nbsp;
+
+          <li style="width:48%"><a class="btn" data-toggle="tab"
+              (click)="result('result')"  class="r" align="center">Admin</a></li>
+
+
+
+        </ul>
+
+        <br />
+
+
+        <div class="tab-content">
+          <div id="search" class="tab-pane fade show active" [ngClass]="{ 'active':activeTab==='search'}">
+
+            <form [formGroup]="userLoginForm" (ngSubmit)="userLogin()">
+
+              <div class="form-group">
+                <div *ngIf="userLoginForm.controls.emailId.errors && 
+            (userLoginForm.controls.emailId.touched || userLoginForm.controls.emailId.dirty)" style="color: red;">
+               User Email Id is required
+            </div>
+                <label for="emailId">User Email address:</label>
+                <input type="text" class="form-control" id="emailId" name="emailId" formControlName="emailId" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+              </div>
+
+              <div class="form-group">
+                <div *ngIf="userLoginForm.controls.pass.errors && 
+                (userLoginForm.controls.pass.touched || userLoginForm.controls.pass.dirty)" style="color: red;">
+                    User Password is required
+                </div>
+                    <label for="pass">User Password:</label>
+                    <input type="password" class="form-control" id="pass" name="pass" formControlName="pass">
+              </div>
+
+
+              <button type="submit" class="btn btn-primary" [disabled]="userLoginForm.invalid">Submit</button>
+              &nbsp;
+              &nbsp;
+              <button type="submit" class="btn btn-primary pull-right btn-link" id="fp"><a routerLink="/forgot-password" style="color: azure;">Forget password</a></button>
+
+            </form>
+            <br />
+            <a href="register-page" routerLinkActive="active" class="pull-right btn btn-block btn-danger" style="margin-bottom: 20px;"> Need an Account? </a>
+          </div>
+          <div class="tab-pane" id="results" [ngClass]="{ 'active':activeTab==='result'}">
+            <form [formGroup]="adminLoginForm" (ngSubmit)="adminLogin()">
+
+              <div class="form-group">
+                <div *ngIf="adminLoginForm.controls.emailId.errors && 
+            (adminLoginForm.controls.emailId.touched || adminLoginForm.controls.emailId.dirty)" style="color: red;">
+                Admin Email Id is required
+            </div>
+            
+                <label for="emailId">Admin Email address:</label>
+                <input type="email" class="form-control" id="emailId" name="emailId" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}[.]{1}[a-zA-Z]{2,}" formControlName="emailId" required email >
+                
+              </div>
+              
+              <div class="form-group">
+                <div *ngIf="adminLoginForm.controls.password.errors && 
+            (adminLoginForm.controls.password.touched || adminLoginForm.controls.password.dirty)" style="color: red;">
+                Admin Password is required
+            </div>
+                <label for="password">Admin Password:</label>
+                <input type="password" class="form-control" id="password" name="password" formControlName="password">
+              </div>
+
+
+              <button type="submit" class="btn btn-primary" [disabled]="adminLoginForm.invalid">Submit</button>
+              <button type="submit" class="btn btn-primary pull-right btn-link" style="margin:5px;" id="fp"><a routerLink="/forgot-password" style="color: azure;">Forget password</a></button>
+
+            </form>
+            <br />
+            
+          </div>
+        </div>
+
+      </div>
+    </fieldset>
+    </div>
+  </div>
+</div>
+</div>
+<div class="ig">
+  <img src="../../assets/login.png" alt="Snow" style="width:80%">
+</div>

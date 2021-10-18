@@ -1,0 +1,207 @@
+<div id="header">
+    <a id="logo" href="home-page">
+        <img src="assets/bus logo.jpg" alt="Logo">
+        
+    </a>
+  
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            
+            <li><a (click)="back()">Go Back</a></li>
+         </ul>
+    </nav>
+    
+
+</div>
+<div class="ig" style="float: left; width: 70%;">
+    <div class="outer">
+        <ul style="float: left; padding-top: 15px;">
+            <li><button (click)="show(1)">Credit/Debit
+                    Card</button></li> <br>
+            <li><button  (click)="show(2)" >UPI</button>
+            </li> <br>
+            <li><button  (click)="show(3)" >Net
+                    Banking</button></li> <br>
+        </ul>
+
+
+        <div class="column" id="show1" style="padding-top: 0px;">
+
+
+            <form [formGroup]="cardForm" style="border-radius: 8px;">
+                <fieldset>
+                    <div class="header">
+                        Credit/Debit Card
+                    </div>
+                    <div class="form-group" style="padding-top: 0px;">
+                        <div *ngIf="cardForm.controls.cardHolderName.errors && 
+                    (cardForm.controls.cardHolderName.touched || cardForm.controls.cardHolderName.dirty)"
+                            style="color: red;">
+                            Valid Card Holder Name required
+                        </div>
+
+                        <label for="cardHolderName">Card Holder Name</label>
+                        <input class="form-control" type="text" pattern="^[A-Za-z]+$" name="cardHolderName" id="cardHolderName"
+                            formControlName="cardHolderName">
+
+                    </div>
+                    <div class="form-group">
+
+                        <div *ngIf="cardForm.controls.cardNumber.errors && 
+                    (cardForm.controls.cardNumber.touched ||cardForm.controls.cardNumber.dirty)"  style="color: red;">
+                            Valid 8-digit Card Number Required
+                        </div>
+                        <label for="cardNumber">8-digit Card Number</label>
+                        <input class="form-control" type="text" name="cardNumber" id="cardNumber"
+                            formControlName="cardNumber" min="8" max="8" pattern="^[0-9]{8}">
+
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="cardForm.controls.cvv.errors && 
+                    (cardForm.controls.cvv.touched || cardForm.controls.cvv.dirty)" style="color: red;">
+                            Valid CVV is required
+                        </div>
+                        <label for="cvv">CVV</label>
+                        <input class="form-control" type="password" name="cvv" min="3" max="3" id="cvv" pattern="^[0-9]{3}" formControlName="cvv">
+
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="cardForm.controls.validTill.errors && 
+                    (cardForm.controls.validTill.touched || cardForm.controls.validTill.dirty)" style="color: red;">
+                            Valid Till required
+                        </div>
+                        <label for="validTill">Valid Till</label>
+                        <input class="form-control" type="month" name="validTill" id="validTill"
+                            formControlName="validTill">
+                    </div>
+                    <div style="padding-bottom: 10px;">
+                        <input class="bn" type="submit" (click)="Book()" value="Complete Payment"
+                            [disabled]="cardForm.invalid">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="column" id="show2" style="padding-top: 0px; display: none;">
+
+            <form [formGroup]="upiForm">
+                <fieldset>
+                    <div class="header">
+                        UPI
+                    </div>
+                    <div class="form-group" style="padding-top: 10px;">
+                        <div *ngIf="upiForm.controls.firstName.errors && 
+                (upiForm.controls.firstName.touched || upiForm.controls.firstName.dirty)" style="color: red;">
+                            First name Required
+                        </div>
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" type="text" name="firstName" id="firstName" 
+                        pattern="^[A-Za-z]+$" formControlName="firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="upiForm.controls.lastName.errors && 
+                (upiForm.controls.lastName.touched || upiForm.controls.lastName.dirty)" style="color: red;">
+                            Last name Required
+                        </div>
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" type="text" pattern="^[A-Za-z]+$" name="lastName" id="lastName"
+                            formControlName="lastName">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="upiForm.controls.phoneNo.errors && 
+                (upiForm.controls.phoneNo.touched || upiForm.controls.phoneNo.dirty)" style="color: red;">
+                            Phone Number is Required
+                        </div>
+                        <label for="phoneNo">Phone Number</label>
+                        <input class="form-control" type="text" name="phoneNo" minlength="10"
+                        pattern="(0|91)?[7-9][0-9]{9}" id="phoneNo" formControlName="phoneNo">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="upiForm.controls.upi.errors && 
+                (upiForm.controls.upi.touched || upiForm.controls.upi.dirty)"  style="color: red;">
+                            Valid UPI ID is required
+                        </div>
+                        <label for="upi">Valid UPI ID</label>
+                        <input class="form-control" type="text" name="upi" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}" id="upi" formControlName="upi">
+                    </div>
+                    <div style="padding-bottom: 10px;">
+                        <input class="bn" type="submit" (click)="Book()" value="Complete Payment"
+                            [disabled]="upiForm.invalid">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+
+        <div class="column" id="show3" style="padding-top: 0px; display: none;">
+
+
+            <form [formGroup]="netBankForm">
+                <fieldset>
+                    <div class="header">
+                        Net Banking
+                    </div>
+                    <div class="form-group" style="padding-top: 10px;">
+                        <div *ngIf="netBankForm.controls.firstName.errors && 
+                    (netBankForm.controls.firstName.touched || netBankForm.controls.firstName.dirty)"
+                            style="color: red;">
+                            First name Required
+                        </div>
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" type="text" name="firstName" id="firstName"
+                        pattern="^[A-Za-z]+$" formControlName="firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="netBankForm.controls.lastName.errors && 
+                    (netBankForm.controls.lastName.touched || netBankForm.controls.lastName.dirty)"
+                            style="color: red;">
+                            Last name Required
+                        </div>
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName" pattern="^[A-Za-z]+$" 
+                            formControlName="lastName">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="netBankForm.controls.bankName.errors && 
+                    (netBankForm.controls.bankName.touched || netBankForm.controls.bankName.dirty)"
+                            style="color: red;">
+                            Bank Name is required
+                        </div>
+                        <label for="bankName">Bank Name</label>
+                        <input class="form-control" type="text" name="bankName" id="bankName" pattern="^[A-Za-z]+$" 
+                            formControlName="bankName">
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="netBankForm.controls.ifsc.errors && 
+                    (netBankForm.controls.ifsc.touched || netBankForm.controls.ifsc.dirty)" style="color: red;">
+                            Bank IFSC Code is required
+                        </div>
+                        <label for="ifsc">Bank IFSC Code</label>
+                        <input class="form-control" type="text" name="ifsc" id="ifsc" pattern="^[a-zA-Z0-9]+$" formControlName="ifsc">
+                    </div>
+                    <!-- <div class="form-group">
+                    <div *ngIf="netBankForm.controls.upi.errors && 
+                    (netBankForm.controls.upi.touched || netBankForm.controls.upi.dirty)" style="color: red;">
+                       Confirmation for Paying through wallet is required
+                    </div>
+                    <label for="wallet">Wallet</label>&nbsp;&nbsp;
+                    <input class="form-check-input" type="checkbox" id="wallet" name="wallet"
+                            formControlName="wallet">
+                </div>-->
+                    <div style="padding-bottom: 10px;">
+                        <input class="bn" type="submit" (click)="Book()" value="Complete Payment"
+                            [disabled]="netBankForm.invalid">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<div class="ig" style="float: left; width: 30%; margin-top: 50px;">
+    Payment is now easier and safer at one touched
+    <img src="../../assets/pay2.jpg" width="80%">
+</div>

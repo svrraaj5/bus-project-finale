@@ -1,0 +1,65 @@
+<div id="search-bus">
+    <hr>
+    <table cellpadding=10 cellspacing=30 style="width:100%;" class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Bus Id</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Arrival Date</th>
+                <th scope="col">Departure Date</th>
+                <th scope="col">Arrival Time</th>
+                <th scope="col">Departure time</th>
+                <th scope="col">Base Fare</th>
+                <th scope="col">Available Seat</th>
+                <th scope="col">Total Seat</th>
+                <th scope="col">Seat Selection</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr *ngFor='let x of bus'> *ngIf='x.source==from' *ngIf='x.destination==to' *ngIf='x.departureDate==depDate'-->
+            <tr *ngFor='let x of bus'>
+                <td>{{x.id}}</td>
+                <td>{{x.source}}</td>
+                <td>{{x.destination}}</td>
+                <td>{{x.arrivalDate}}</td>
+                <td>{{x.departureDate}}</td>
+                <td>{{x.arrivalTime}}</td>
+                <td>{{x.departureTime}}</td>
+                <td>{{x.baseFare}}</td>
+                <td>{{x.availableSeat}}</td>
+                <td>{{x.totalSeat}}</td>
+                <td><button style="background-color: darkorange;" (click)="select(x)">Select Seat</button></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <hr>
+</div>
+
+<div id="show1" style="display: none;">
+    <div class="detail" >
+        <div id="ticket-details">
+            <div id="details">
+                <h2>Ticket Details</h2>
+                <div id="print-details">
+                    <h3>Bus No :- {{id}} </h3>
+                    <h3>Source :- {{source}}</h3>
+                    <h3>Destination :- {{destination}} </h3>
+                    <h3>Date of Journey :- {{DateOfJrny}} </h3>
+                    <h3>Arrival Time :- {{arrivalTime}} </h3>
+                    <h3>Departure Time :- {{departureTime}} </h3>
+                    <h3>Driver Status:- {{dst}}</h3>
+                    <h3>Fare :- {{totalFare}} </h3>
+                </div>
+            </div>
+        </div>
+        <div id="proceed-button">
+            <div id="proceed">
+                <button routerLink="/dashboard">Cancel</button>
+                <button (click)="proceed()">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+</div>
